@@ -20,25 +20,29 @@ if( have_rows('hero_block_curvy') ):
     
     <div class="hero-block-curvy page-type--<?php echo esc_attr($page); ?>">
 
-      <?php if($background === 'gradient'): ?>  // Resuable Gradient Background HTML
-        <div class="gradient-background">
-          <div class="gradient-background__bg"></div>
-        </div>
-      <?php endif; ?>   
+      <div class="hero-block-curvy__background">
 
-      <?php if($background === 'video' && $video): ?>
-        <div class="hero-block-curvy__video">
-          <video playsinline autoplay muted loop>
-            <source src="<?php echo esc_url($video); ?>" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <?php if($background === 'gradient'): ?>
+          <div class="gradient-background">
+            <div class="gradient-background__bg"></div>
+          </div>
+        <?php endif; ?>   
 
-      <?php elseif($background === 'image' && $image): ?>
-        <div class="hero-block-curvy__image">
-          <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['title']); ?>">
-        </div> 
-      <?php endif; ?> 
+        <?php if($background === 'video' && $video): ?>
+          <div class="hero-block-curvy__video">
+            <video playsinline autoplay muted loop>
+              <source src="<?php echo esc_url($video); ?>" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+        <?php elseif($background === 'image' && $image): ?>
+          <div class="hero-block-curvy__image">
+            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['title']); ?>">
+          </div> 
+        <?php endif; ?> 
+
+      </div>
 
       <div class="hero-block-curvy__content">
 

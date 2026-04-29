@@ -1344,11 +1344,31 @@ html.active .site-overlay {
 .hero-block-curvy {
   position: relative;
 }
+.hero-block-curvy.page-type--standard .hero-block-curvy__background {
+  height: 480px;
+}
+.hero-block-curvy.page-type--standard .gradient-background {
+  height: 480px;
+}
+.hero-block-curvy.page-type--home .hero-block-curvy__background {
+  height: 56vh;
+}
+.hero-block-curvy.page-type--home .gradient-background {
+  height: 56vh;
+}
 .hero-block-curvy__outer-wrapper {
   padding-bottom: 120px;
 }
 .hero-block-curvy__wrapper {
   position: relative;
+}
+.hero-block-curvy__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  overflow: hidden;
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox=%270 0 100 100%27 preserveAspectRatio=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M0 0 H100 V56 C86 64 70 70 50 76 C30 82 12 90 0 100 Z%27 fill=%27white%27/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg viewBox=%270 0 100 100%27 preserveAspectRatio=%27none%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M0 0 H100 V56 C86 64 70 70 50 76 C30 82 12 90 0 100 Z%27 fill=%27white%27/%3E%3C/svg%3E");
   -webkit-mask-size: 100% 100%;
@@ -1356,11 +1376,15 @@ html.active .site-overlay {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
-.hero-block-curvy__image, .hero-block-curvy__video {
+.hero-block-curvy__image, .hero-block-curvy__video,
+.hero-block-curvy .gradient-background {
   position: absolute;
   inset: 0;
   z-index: 0;
   width: 100%;
+  overflow: hidden;
+}
+.hero-block-curvy__image, .hero-block-curvy__video {
   height: 100%;
 }
 .hero-block-curvy__image img,
@@ -1388,7 +1412,8 @@ html.active .site-overlay {
   position: relative;
   z-index: 1;
   max-width: 44%;
-  height: 100%;
+  min-height: 480px;
+  padding-top: 80px;
   margin-left: 4%;
 }
 .hero-block-curvy__heading {
@@ -1400,18 +1425,9 @@ html.active .site-overlay {
 }
 .hero-block-curvy__links {
   display: flex;
-  justify-content: center;
   align-items: center;
   column-gap: 16px;
   margin: 32px 0 0;
-}
-
-.page-type--standard {
-  min-height: 480px;
-}
-
-.page-type--home {
-  min-height: 56vh;
 }
 
 .image-block__wrapper.single {
