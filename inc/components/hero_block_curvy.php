@@ -1,10 +1,9 @@
-<?php // Hero Block
+<?php // Hero Block Curvy
 
-  if( have_rows('hero_block') ): 
-    while( have_rows('hero_block') ): the_row(); 
+  if( have_rows('hero_block_curvy') ): 
+    while( have_rows('hero_block_curvy') ): the_row(); 
     $page = get_sub_field('page_type');
     $background = get_sub_field('background');
-    $fadeColor = get_sub_field('fade_color');
     $image = get_sub_field('image');
     $video = get_sub_field('video');
     $heading = get_sub_field('heading');
@@ -13,35 +12,35 @@
     $additionalLink = get_sub_field('additional_link');
     ?>
 
-<section class="hero-block__wrapper page-type--<?php echo $page ?> fade--<?php echo $fadeColor ?>">
-  <div class="hero-block">
+<section class="hero-block-curvy__wrapper page-type--<?php echo $page ?>">
+  <div class="hero-block-curvy">
     <?php if($background == 'video'): ?>
-      <div class="hero-block__video">
+      <div class="hero-block-curvy__video">
         <video playsinline autoplay muted loop>
           <source src="<?php echo $video ?>" type="video/mp4">
         Your browser does not support the video tag.
         </video>
       </div>
     <?php else: ?>
-      <div class="hero-block__image">
+      <div class="hero-block-curvy__image">
         <img src="<?php echo $image['url'] ?>" alt="<?php echo $image['title'] ?>">
       </div> 
     <?php endif; ?> 
 
     <?php if($heading): ?>
-      <h1 class="hero-block__heading">
+      <h1 class="hero-block-curvy__heading">
         <?php echo $heading ?>
       </h1>
     <?php endif; ?>
 
     <?php if($description): ?>
-      <div class="hero-block__description">
+      <div class="hero-block-curvy__description">
         <?php echo $description ?>
       </div>
     <?php endif; ?>
 
     <?php if($link): ?>
-      <div class="hero-block__links">
+      <div class="hero-block-curvy__links">
         <a class="primary-button" href="<?php echo $link['url'] ?>"><?php echo $link['title'] ?></a>
         <?php if($additionalLink): ?>
           <a class="secondary-button" href="<?php echo $additionalLink['url'] ?>"><?php echo $additionalLink['title'] ?></a>
@@ -54,4 +53,3 @@
 
 <?php endwhile; ?>
 <?php endif; ?>
-
