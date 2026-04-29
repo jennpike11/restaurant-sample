@@ -24,7 +24,6 @@ body {
   line-height: 28px;
   font-weight: 100;
   font-family: $font-primary;
-  background: $black;
   scroll-behavior: smooth;
   -moz-font-smoothing: antialiased;
   -o-font-smoothing: antialiased;
@@ -44,7 +43,7 @@ h6 {
 
 h1 {
   font-size: 48px;
-  line-height: 56px;
+  line-height: 1;
 
   @include respond-up(small){
     font-size: 64px;

@@ -1,137 +1,121 @@
 @use '../base/globals' as *;
 
-.page.page-parent,
-.page.page-child {
-    padding-top: unset;
-}
-
 .site-header {
-    @include container;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  z-index: 9;
+  width: 100%;
+  height: 100dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: $black;
+  transition: left 0.6s ease-in-out;
 
-    @include respond-up(large) {
-        @include flex-between;
-        align-items: center;
-    }
+  @include respond-up(small) { 
+    width: 33%;
+  }
 
-    &__wrapper {
-        position: fixed;
-        left: 0;
-        z-index: 9;
-        width: 100%;
-    }
+  @include respond-up(xlarge) { 
+    width: 16%;
+  }
 
-    &__logo {
-        height: 80px;
-        object-fit: contain;
-        padding: 8px 0;
-        font-family: $font-secondary;
-        font-size: 40px;
-        color: $gold;
+  .active & {
+    left: 0;
+  }
 
-        &:hover {
-            color: $gold;
-        }
-
-        img {
-            max-height: 56px;
-        }  
-    }
-
-    .main-navigation {
-        @media only screen and (max-width: 1023px) {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            width: 100%;
-            height: 0;
-            padding: 80px 24px 0;
-            overflow: hidden;
-            background: $black;
-            transition: height .2s linear;
-        }
-    
-        &.active {
-            @media only screen and (max-width: 1023px) {
-                height: 100vh;
-                transition: height .5s linear;
-            }
-        }
-
-        @include respond-up(large) {
-            width: 60%;
-            margin-left: auto;
-        }
-    }
-
-    .menu {
-        color: $gold;
-        font-size: 20px;
-        font-family: $font-secondary;
-
-        @include respond-up(large){
-            @include flex-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        li {
-            cursor: pointer;
-
-            @media only screen and (max-width: 1023px) {
-                padding: 32px 0;
-                border-bottom: 1px solid;
-                text-align: center;
-            }
-        }
-    }
-
-    .menu-item:last-of-type {
-        padding: 4px 12px;
-        border: 1px solid $gold;
-    }
-
-    ul, ol, li {
-        list-style-type: none;
-    }
-}
-
-
-.menu-toggle {
+  &__logo {
+    display: none; // CHANGE
     position: fixed;
-    top: 24px;
-    right: 24px;
-    z-index: 99;
-    background: 0;
-    border: 0;
-    font-size: 0;
-    background: 0;
+    top: 8px;
+    left: 8px;
+    z-index: 999;
+    height: 56px;
 
-    @include respond-up(large){
-        display: none;
+    @include respond-up(small){
+      top: 64px;
+      left: 24px;
+      height: 80px;
     }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.main-navigation {
+  padding: 188px 32px 48px;
+  margin: 0;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 56px;
+  }
+
+  @media (max-height: 520px) {
+    padding-top: 110px;
+
+    ul {
+      row-gap: 28px;
+    }
+  }
+
+  li {
+    position: relative;
+    font-size: 24px;
+    color: $white;
+  }
+}
+
+.site-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 8;
+}
+
+html.active .site-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .menu-toggle {
-    &:after {
-        content: '\f0c9';
-        position: relative;
-        z-index: 999;
-        margin-top: 8vh;
-        font-family: fontawesome;
-        font-size: 30px;
-        color: $gold;
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  z-index: 999;
+  border: 0;
+  font-size: 0;
+  background: 0;
+
+  @include respond-up(small){
+    top: 16px;
+    right: 16px;
+  }
+
+  &:after {
+    content: '\f550';
+    font-family: fontawesome;
+    font-size: 32px;
+    color: $white;
+
+    @include respond-up(small){
+      font-size: 40px;
     }
+  }
 }
 
-.menu-toggle.active {
-    &:after {
-        content: '\f00d';
-        position: relative;
-        z-index: 999;
-        margin-top: 8vh;
-        font-family: fontawesome;
-        font-size: 30px;
-        color: $gold;
-    }
+.active .menu-toggle:after {
+  content:'\f00d';
+  font-family: fontawesome;
 }

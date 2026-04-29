@@ -4,6 +4,7 @@
     while( have_rows('hero_block') ): the_row(); 
     $page = get_sub_field('page_type');
     $background = get_sub_field('background');
+    $backgroundColor = get_sub_field('background_color');
     $fadeColor = get_sub_field('fade_color');
     $image = get_sub_field('image');
     $video = get_sub_field('video');
@@ -13,7 +14,7 @@
     $additionalLink = get_sub_field('additional_link');
     ?>
 
-<section class="hero-block__wrapper page-type--<?php echo $page ?> fade--<?php echo $fadeColor ?>">
+<section class="hero-block__wrapper page-type--<?php echo $page ?> fade--<?php echo $fadeColor ?>"  background-color--<?php echo $backgroundColor ?>">
   <div class="hero-block">
     <?php if($background == 'video'): ?>
       <div class="hero-block__video">
