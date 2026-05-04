@@ -1,3 +1,5 @@
+@use '../base/globals' as *;
+
 .post-feed {
   @include container;
   max-width: $max-width;

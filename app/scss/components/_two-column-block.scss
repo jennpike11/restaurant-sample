@@ -1,3 +1,5 @@
+@use '../base/globals' as *;
+
 .two-column-block {
     @include flex-between;
     @include container;

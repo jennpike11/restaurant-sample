@@ -34,19 +34,19 @@
   });
 
 
-  // Rooms Slider
-  if ($.fn.slick && $('.rooms-block__carousel').length && !$('.rooms-block__carousel').hasClass('slick-initialized')) {
-    $('.rooms-block__carousel').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite: true,
-      arrows: false,
-      dots: true,
-      cssEase: 'linear',
-      pauseOnHover: true,
-      pauseOnFocus: true,
-    });
-  }
+  // Featured Slider
+  $('.featured-slider__items').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    infinite: true,
+    prevArrow: '<button type="button" class="slick-prev">Prev</button>',
+    nextArrow: '<button type="button" class="slick-next">Next</button>',
+    arrows: true,
+    dots: false,
+    cssEase: 'linear',
+    pauseOnHover: true,
+    pauseOnFocus: true,
+  });
 
 
 // Carousel Block Slider + Hover Scrub

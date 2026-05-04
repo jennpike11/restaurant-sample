@@ -1,3 +1,5 @@
+@use '../base/globals' as *;
+
 .four-column-block {
   @include container;
 

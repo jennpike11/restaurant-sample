@@ -1,3 +1,5 @@
+@use '../base/globals' as *;
+
 .slider-block {
   @include container;
   position: relative;

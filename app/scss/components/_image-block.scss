@@ -1,3 +1,5 @@
+@use '../base/globals' as *;
+
 .image-block {
   &__wrapper.single {
     @include container;

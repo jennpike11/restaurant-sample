@@ -1,3 +1,5 @@
+@use '../base/globals' as *;
+
 .text-with-image-block {
   &__wrapper {
     position: relative;
